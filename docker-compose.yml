@@ -1,0 +1,20 @@
+redis:
+  image: redis
+  hostname: redis
+  domainname: localdomain
+
+snapshotservice:
+  build: sdh-widget-snapshot-service
+  hostname: snapshotservice
+  domainname: localdomain
+  links:
+    - redis:redis
+  environment:
+    - TERM=xterm
+    - REDIS_HOST=redis
+    - REDIS_PORT=6379
+    - PHANTOM_WORKERS=1
+    - PHANTOM_EXECUTORS_PER_WORKER=1
+    - API_URL
+  ports:
+    - 8888:8888

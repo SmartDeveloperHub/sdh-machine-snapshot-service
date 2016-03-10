@@ -8,6 +8,8 @@ RUN apt-get -qq update && apt-get -qq -y install libfontconfig1 && apt-get clean
 ADD ./my_init.d/ /etc/my_init.d/
 ONBUILD ./my_init.d/ /etc/my_init.d/
 
+RUN chmod u+x /etc/my_init.d/*
+
 CMD ["/sbin/my_init"]
 
 # Ports

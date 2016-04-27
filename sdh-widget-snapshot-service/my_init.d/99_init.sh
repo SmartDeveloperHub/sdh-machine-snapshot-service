@@ -3,19 +3,6 @@
 
 SDHNAME="sdh-widget-snapshot-service"
 
-Configure() {
-    sed -i \
-        -e "s|config.port\s*=\s*.*|config.port=8888|g" \
-        -e "s|config.persistence.directory\s*=\s*.*|config.persistence.directory=\"/home/persisted/\"|g" \
-        -e "s|config.persistence.redis.host\s*=\s*.*|config.persistence.redis.host=\"$REDIS_HOST\"|g" \
-        -e "s|config.persistence.redis.port\s*=\s*.*|config.persistence.redis.port=$REDIS_PORT|g" \
-        -e "s|config.phantom.workers\s*=\s*.*|config.phantom.workers=$PHANTOM_WORKERS|g" \
-        -e "s|config.phantom.executors_per_worker\s*=\s*.*|config.phantom.executors_per_worker=$PHANTOM_EXECUTORS_PER_WORKER|g" \
-        -e "s|config.api.url\s*=\s*.*|config.api.url=\"$API_URL\"|g" \
-    config.js
-
-}
-
 Update() {
     ROOT=$(pwd)
     cd /home/
@@ -35,9 +22,7 @@ Update() {
     mkdir -p /home/persisted/
 
     npm install --unsafe-perm
-    cp config.sample.js config.js
-    echo "> Configuring Service"
-    Configure
+
     echo "> Starting Service"
     Start
 

@@ -39,6 +39,6 @@ If you want to change port redirection or configuration, we suggest you:
 |:---------|:----------|:----------|
 |PHANTOM_WORKERS|Number of phantom processes|1 or more|
 |PHANTOM_EXECUTORS_PER_WORKER|Number of executors per process|1 or more|
-|API_URL\*|URI where to locate the API|http://... |
+|SDH_API_URL\*|URI where to locate the API|http://... |
 
 \* This is obtained by default from the host environment

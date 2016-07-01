@@ -17,6 +17,6 @@ snapshotservice:
     - PHANTOM_WORKERS=1
     - PHANTOM_EXECUTORS_PER_WORKER=1
     - PERSISTENCE_DIRECTORY=/home/persisted/
-    - API_URL
+    - SDH_API_URL
   ports:
     - 8888:8888
